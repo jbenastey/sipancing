@@ -7,6 +7,7 @@
 			</h4>
 			<div class="table-responsive">
 				<table id="order-listing" class="table table-bordered">
+					<a href="<?= base_url('admin/kategori/tambah') ?>" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px"><strong>+</strong> Tambah Kategori</a>
 					<thead>
 					<tr>
 						<th style="width: 1%;">No</th>
@@ -15,7 +16,17 @@
 					</tr>
 					</thead>
 					<tbody>
-
+					<?php
+					foreach ($kategori as $key=>$value):
+					?>
+					<tr>
+						<td><?=$key+1?></td>
+						<td><?=$value['kategori_nama']?></td>
+						<td><a href="#">Lihat</a></td>
+					</tr>
+					<?php
+					endforeach;
+					?>
 					</tbody>
 				</table>
 			</div>
