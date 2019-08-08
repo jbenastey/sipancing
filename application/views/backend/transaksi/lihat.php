@@ -69,58 +69,32 @@
 				<table class="table">
 					<thead>
 					<tr>
-						<th>Jenis</th>
+						<th>Nama</th>
+						<th>Kategori</th>
 						<th>Jumlah</th>
-						<th>Harga</th>
+						<th style="text-align: center">Harga</th>
 					</tr>
 					</thead>
 					<tbody>
-					<tr>
-						<?php
-						if ($spanduk == !null):
-							?>
-							<td>Spanduk</td>
-							<td><?= count($spanduk) ?></td>
-							<td>
-								<?php
-								$harga = 0;
-								foreach ($spanduk as $key => $value) {
-									$harga = $harga + $value['spanduk_total'];
-								}
-								echo 'Rp. ' . nominal($harga)
-								?>
-							</td>
-						<?php
-						endif;
+					<?php
+					foreach ($produk as $key => $value):
 						?>
-					</tr>
-					<tr>
-						<?php
-						if ($stiker == !null):
-							?>
-							<td>Stiker</td>
-							<td><?= count($stiker) ?></td>
-							<td>
-								<?php
-								$harga = 0;
-								foreach ($stiker as $key => $value) {
-									$harga = $harga + $value['stiker_total'];
-								}
-								echo 'Rp. ' . nominal($harga)
-								?>
-							</td>
-						<?php
-						endif;
-						?>
-					</tr>
+						<tr>
+							<td><?= $value['produk_nama'] ?> </td>
+							<td><?= $value['kategori_nama'] ?> </td>
+							<td><?= $value['pesanan_jumlah'] ?></td>
+							<td> Rp. <?= nominal($value['pesanan_total']) ?></td>
+						</tr>
+					<?php
+					endforeach;
+					?>
 					</tbody>
 					<tfoot>
 					<tr>
-						<td colspan="2">Total</td>
+						<td colspan="3">Total</td>
 						<td>Rp. <?= nominal($transaksi['keranjang_total']) ?></td>
 					</tr>
 					</tfoot>
-					</tbody>
 				</table>
 			</div>
 		</div>
@@ -136,7 +110,6 @@
 			<?php
 			if ($konfirmasi != null):
 				?>
-
 				<div>
 					<table width="100%">
 						<tr>
@@ -175,6 +148,13 @@
 										   class="btn btn-primary ml-2"
 										   onclick="return confirm('Konfirmasi Pembayaran? ')"><i
 												class="fa fa-check"></i> Konfirmasi</a>
+										<?php
+									else:
+										?>
+										<div class="alert alert-success alert-dismissible animated fadeInDown round" style="" id="feedback"
+											 role="alert">
+											Pesanan sudah dikonfirmasi
+										</div>
 									<?php
 									endif;
 								else :?>
@@ -190,11 +170,22 @@
 				</div>
 			<?php
 			else:
+				if ($transaksi['faktur_bank'] == 'cod'):
+					?>
+					<div class="alert alert-success alert-dismissible animated fadeInDown round" style="" id="feedback"
+						 role="alert">
+						Pesanan sudah dikonfirmasi
+					</div>
+				<?php
+				else:
+					?>
+					<div class="alert alert-warning alert-dismissible animated fadeInDown round" style="" id="feedback"
+						 role="alert">
+						Pemesan belum melakukan konfirmasi pembayaran.
+					</div>
+				<?php
+				endif;
 				?>
-				<div class="alert alert-warning alert-dismissible animated fadeInDown round" style="" id="feedback"
-					 role="alert">
-					Pemesan belum melakukan konfirmasi pembayaran.
-				</div>
 			<?php
 			endif;
 			?>

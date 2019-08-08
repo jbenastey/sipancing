@@ -24,7 +24,7 @@
 						<td>&nbsp;
 							<?php if ($pesanan['faktur_status'] == 'belum'):?>
 								<label class="label label-warning">Belum dikonfirmasi</label>
-								<a href="<?=base_url('konfirmasi/'.$pesanan['faktur_id'])?>" class="label label-primary">Konfirmasi Pembayaran</a>
+								<a href="<?=base_url('konfirmasi/'.$pesanan['faktur_id'].'/'. $pesanan['faktur_bank'])?>" class="label label-primary">Konfirmasi Pembayaran</a>
 							<?php elseif ($pesanan['faktur_status'] == 'sudah'):?>
 								<label class="label label-primary">Selesai</label>
 							<?php elseif ($pesanan['faktur_status'] == 'tunggu'):?>
@@ -54,6 +54,28 @@
 							$tanggal = explode(" ",$pesanan['faktur_date_created']);
 							echo $tanggal[1].', '.date_indo($tanggal[0]);
 							?>
+
+						</td>
+					</tr>
+					<tr>
+						<td>Metode Pembayaran &nbsp;</td>
+						<td> : </td>
+						<td>&nbsp;
+							<?php
+							if ($pesanan['faktur_bank'] == 'cod'):
+							?>
+							Bayar Ditempat
+							<?php
+							elseif ($pesanan['faktur_bank'] == 'bri'):
+							?>
+							Transfer BRI
+							<?php
+							elseif ($pesanan['faktur_bank'] == 'bni'):
+							?>
+							Transfer BNI
+							<?php
+							endif;
+							?>
 						</td>
 					</tr>
 				</table>
@@ -76,54 +98,29 @@
 				<table class="table">
 					<thead>
 					<tr>
-						<th>Jenis</th>
-						<th>Jumlah</th>
-						<th>Harga</th>
+						<th >Nama</th>
+						<th >Kategori</th>
+						<th >Jumlah</th>
+						<th style="text-align: center">Harga</th>
 					</tr>
 					</thead>
 					<tbody>
-					<tr>
-						<?php
-						if ($spanduk == !null):
-							?>
-							<td>Spanduk</td>
-							<td><?=count($spanduk)?></td>
-							<td>
-								<?php
-								$harga = 0;
-								foreach ($spanduk as $key=>$value) {
-									$harga = $harga + $value['spanduk_total'];
-								}
-								echo 'Rp. '.nominal($harga)
-								?>
-							</td>
-						<?php
-						endif;
+					<?php
+					foreach ($produk as $key => $value):
 						?>
-					</tr>
-					<tr>
-						<?php
-						if ($stiker == !null):
-							?>
-							<td>Stiker</td>
-							<td><?=count($stiker)?></td>
-							<td>
-								<?php
-								$harga = 0;
-								foreach ($stiker as $key=>$value) {
-									$harga = $harga + $value['stiker_total'];
-								}
-								echo 'Rp. '.nominal($harga)
-								?>
-							</td>
-						<?php
-						endif;
-						?>
-					</tr>
+						<tr>
+							<td><?= $value['produk_nama'] ?> </td>
+							<td><?= $value['kategori_nama'] ?> </td>
+							<td><?= $value['pesanan_jumlah'] ?></td>
+							<td> Rp. <?= nominal($value['pesanan_total']) ?></td>
+						</tr>
+					<?php
+					endforeach;
+					?>
 					</tbody>
 					<tfoot>
 					<tr>
-						<td colspan="2">Total</td>
+						<td colspan="3">Total</td>
 						<td>Rp. <?= nominal($pesanan['keranjang_total']) ?></td>
 					</tr>
 					</tfoot>

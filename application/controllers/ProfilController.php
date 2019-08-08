@@ -18,7 +18,7 @@ class ProfilController extends CI_Controller
 	}
 	public function index(){
 		$data = array(
-			'title' => 'Profil | Surya Madani Digital Printing'
+			'title' => 'Profil | Toko Aj. Pancing'
 		);
 		$this->load->view('frontend/templates/header',$data);
 		$this->load->view('frontend/profil/index');
@@ -38,10 +38,7 @@ class ProfilController extends CI_Controller
 		$data = array(
 			'title' => 'Detail Pesanan | Surya Madani Digital Printing',
 			'pesanan' => $pesanan,
-			'spanduk' => $this->BayarModel->lihat_keranjang_spanduk($this->session->userdata('session_id'),'bayar_menunggu',$pesanan['keranjang_id'])->result_array(),
-			'stiker' => null,
-			'kartu' => null,
-			'brosur' => null,
+			'produk' => $this->BayarModel->lihat_keranjang_produk($this->session->userdata('session_id'),'sudah',$pesanan['keranjang_id'])->result_array(),
 		);
 		$this->load->view('frontend/templates/header',$data);
 		$this->load->view('frontend/profil/detail_pesanan',$data);

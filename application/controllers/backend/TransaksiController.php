@@ -31,10 +31,7 @@ class TransaksiController extends CI_Controller {
 		$data = array(
 			'transaksi' => $transaksi,
 			'konfirmasi' => $konfirmasi,
-			'spanduk' => $this->BayarModel->lihat_keranjang_spanduk($transaksi['keranjang_pengguna_id'],'bayar_menunggu',$transaksi['keranjang_id'])->result_array(),
-			'stiker' => null,
-			'kartu' => null,
-			'brosur' => null,
+			'produk' => $this->BayarModel->lihat_keranjang_produk($transaksi['keranjang_pengguna_id'],'sudah',$transaksi['keranjang_id'])->result_array(),
 		);
 		$this->load->view('backend/templates/header');
 		$this->load->view('backend/transaksi/lihat',$data);
