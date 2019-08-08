@@ -6,14 +6,19 @@ class HomeController extends CI_Controller{
 	public function __construct()
 	{
 		parent::__construct();
+		$model = array('CRUDModel');
+		$helper = array('nominal');
+		$this->load->model($model);
+		$this->load->helper($helper);
 	}
 	public function index()
 	{
 		$data = array(
-			'title' => 'Surya Madani Digital Printing'
+			'title' => 'Toko Aj. Pancing',
+			'produk' => $this->CRUDModel->view_produk()
 		);
 		$this->load->view('frontend/templates/header',$data);
-		$this->load->view('frontend/index');
+		$this->load->view('frontend/index',$data);
 		$this->load->view('frontend/templates/footer');
 	}
 }

@@ -6,7 +6,7 @@ class BayarController extends CI_Controller{
 	public function __construct()
 	{
 		parent::__construct();
-		$model = array('BayarModel');
+		$model = array('BayarModel','CRUDModel');
 		$helper = array('nominal');
 		$this->load->model($model);
 		$this->load->helper($helper);
@@ -19,52 +19,65 @@ class BayarController extends CI_Controller{
 		$keranjang = $this->BayarModel->lihat_keranjang_status($this->session->userdata('session_id'),'belum')->row_array();
 		$data = array(
 			'keranjang' => $keranjang,
-			'spanduk' => $this->BayarModel->lihat_keranjang_spanduk($this->session->userdata('session_id'),'belum',$keranjang['keranjang_id'])->result_array(),
-			'title' => 'Keranjang | Surya Madani Digital Printing'
+			'pesanan' => $this->BayarModel->lihat_keranjang_produk($this->session->userdata('session_id'),'belum',$keranjang['keranjang_id'])->result_array(),
+			'title' => 'Keranjang | Toko Aj. Pancing'
 		);
 		$this->load->view('frontend/templates/header',$data);
 		$this->load->view('frontend/pembayaran/keranjang',$data);
 		$this->load->view('frontend/templates/footer');
 	}
 	public function bayar($id){
+		$keranjang = $this->BayarModel->lihat_keranjang_status($this->session->userdata('session_id'),'belum')->row_array();
+		$data = array(
+			'keranjang' => $keranjang,
+			'pesanan' => $this->BayarModel->lihat_keranjang_produk($this->session->userdata('session_id'),'belum',$keranjang['keranjang_id'])->result_array(),
+			'title' => 'Pembayaran | Toko Aj. Pancing'
+		);
 		if (isset($_POST['selesai'])){
 			$fakturId = 'INV-' . substr(time(), 5);
 			$bank = $this->input->post('tipebayar');
 			$dataBayar = array(
-				'keranjang_status' => 'bayar_menunggu'
+				'keranjang_status' => 'sudah'
 			);
 			$dataFaktur = array(
 				'faktur_id' => $fakturId,
 				'faktur_keranjang_id' => $id,
 				'faktur_bank' => $bank
 			);
+			foreach ($data['pesanan'] as $key=>$value){
+				$produkId = $value['produk_id'];
+				$jumlah = $value['pesanan_jumlah'];
+				$stok = $value['produk_stok'] - $jumlah;
+				$dataStok = array(
+					'produk_stok' => $stok
+				);
+				$this->CRUDModel->update('produk_id',$produkId,'sipancing_produk',$dataStok);
+			}
 			$this->BayarModel->update_keranjang($id,$dataBayar);
 			$this->BayarModel->simpan_faktur($dataFaktur);
 			$this->session->set_flashdata('alert', 'bayar_sukses');
 			redirect('selesai/'.$bank);
 		}
-		$pesanan = $this->BayarModel->lihat_keranjang_status($this->session->userdata('session_id'),'belum')->row_array();
-		$data = array(
-			'pesanan' => $pesanan,
-			'spanduk' => $this->BayarModel->lihat_keranjang_spanduk($this->session->userdata('session_id'),'belum',$pesanan['keranjang_id'])->result_array(),
-			'stiker' => null,
-			'kartu' => null,
-			'brosur' => null,
-			'title' => 'Pembayaran | Surya Madani Digital Printing'
-		);
 		$this->load->view('frontend/templates/header',$data);
 		$this->load->view('frontend/pembayaran/bayar',$data);
 		$this->load->view('frontend/templates/footer');
 	}
 	public function selesai($bank){
+		$kata = array(
+			'bni' => 'Silahkan transfer ke rekening ',
+			'bri' => 'Silahkan transfer ke rekening ',
+			'cod' => 'Silahkan datang ke alamat '
+		);
 		$dataBank = array(
-			'bni' => 'Bank BNI 123456789 Atas Nama Surya Madani ',
-			'bri' => 'Bank BRI 115511026 Atas Nama Surya Madani '
+			'bni' => 'Bank BNI 123456789 Atas Nama Yosi Sepriani ',
+			'bri' => 'Bank BRI 115511026 Atas Nama Yosi Sepriani ',
+			'cod' => 'Toko Aj. Pancing dengan membayar '
 		);
 		$data = array(
+			'kata' => $kata[$bank],
 			'bank' => $dataBank[$bank],
-			'pesanan' => $this->BayarModel->lihat_keranjang_status($this->session->userdata('session_id'),'bayar_menunggu')->row_array(),
-			'title' => 'Terima Kasih | Surya Madani Digital Printing'
+			'pesanan' => $this->BayarModel->lihat_keranjang_status($this->session->userdata('session_id'),'sudah')->row_array(),
+			'title' => 'Terima Kasih | Toko Aj. Pancing'
 		);
 		$this->load->view('frontend/templates/header',$data);
 		$this->load->view('frontend/pembayaran/selesai',$data);

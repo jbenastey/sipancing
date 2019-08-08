@@ -22,6 +22,12 @@ class CRUDModel extends CI_Model{
 		$this->db->where($key,$id);
 		return $this->db->get($table)->row_array();
 	}
+	function view_produk_by_id($id){
+		$this->db->from('sipancing_produk');
+		$this->db->join('sipancing_kategori','sipancing_kategori.kategori_id = sipancing_produk.produk_kategori_id');
+		$this->db->where('produk_id',$id);
+		return $this->db->get()->row_array();
+	}
 	function insert($table,$data){
 		return $this->db->insert($table,$data);
 	}

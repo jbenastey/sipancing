@@ -28,6 +28,8 @@ class ProdukController extends CI_Controller{
 			$kategori = $this->input->post('kategori');
 			$harga = $this->input->post('harga');
 			$deskripsi = $this->input->post('deskripsi');
+			$stok = $this->input->post('stok');
+
 			$config['upload_path'] = './assets/images/produk/';
 			$config['allowed_types'] = 'jpg|png|jpeg';
 			$this->load->library('upload', $config);
@@ -46,6 +48,7 @@ class ProdukController extends CI_Controller{
 					'produk_harga' => $harga,
 					'produk_deskripsi' => $deskripsi,
 					'produk_foto' => $foto,
+					'produk_stok' => $stok
 				);
 				$this->CRUDModel->insert('sipancing_produk',$data);
 				redirect('admin/produk');

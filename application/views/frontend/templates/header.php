@@ -233,7 +233,7 @@
 						class="icon-bar"></span><span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="<?= base_url('') ?>">
-					<p style="color: white;"><i class="fa fa-print"></i> Surya Madani Digital Printing</p></a>
+					<p style="color: white;"><i class="fa fa-home"></i> Toko Aj. Pancing</p></a>
 			</div>
 			<div class="collapse navbar-collapse" id="main-nav-collapse">
 				<ul class="nav navbar-nav">
@@ -362,20 +362,20 @@
 					<?php endif; ?>
 					<li>
 						<?php
-						$ci =& get_instance();
-						$ci->load->model('BayarModel');
-						$keranjang = $ci->BayarModel->lihat_keranjang_status($this->session->userdata('session_id'), 'belum')->row_array();
-						if ($keranjang == null):
+//						$ci =& get_instance();
+//						$ci->load->model('BayarModel');
+//						$keranjang = $ci->BayarModel->lihat_keranjang_status($this->session->userdata('session_id'), 'belum')->row_array();
+//						if ($keranjang == null):
 							?>
 							<a href="<?= base_url('keranjang') ?>"><i
 									class="fa fa-shopping-cart"></i></a>
 						<?php
-						else:
+//						else:
 							?>
-							<a href="<?= base_url('keranjang') ?>"><i
-									class="fa fa-shopping-cart animated infinite tada"></i></a>
+<!--							<a href="--><?//= base_url('keranjang') ?><!--"><i-->
+<!--									class="fa fa-shopping-cart animated infinite tada"></i></a>-->
 						<?php
-						endif;
+//						endif;
 						?>
 					</li>
 				</ul>

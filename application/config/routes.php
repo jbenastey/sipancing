@@ -55,7 +55,7 @@ $route['default_controller'] = 'HomeController';
 $route['login'] = 'AuthController/login';
 $route['logout'] = 'AuthController/logout';
 
-$route['spanduk'] = 'PesanController/pesanSpanduk';
+$route['pesan/(:any)'] = 'PesanController/pesan/$1';
 
 $route['keranjang'] = 'BayarController/keranjang';
 $route['bayar/(:any)'] = 'BayarController/bayar/$1';

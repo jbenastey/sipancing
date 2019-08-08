@@ -14,6 +14,7 @@
 						<th>Nama Produk</th>
 						<th>Kategori</th>
 						<th>Harga</th>
+						<th>Stok</th>
 						<th style="text-align: center"><i class="icon-settings"></i></th>
 					</tr>
 					</thead>
@@ -26,6 +27,7 @@
 							<td><?=$value['produk_nama']?></td>
 							<td><?=$value['kategori_nama']?></td>
 							<td><?=$value['produk_harga']?></td>
+							<td><?=$value['produk_stok']?></td>
 							<td><a href="#">Lihat</a></td>
 						</tr>
 					<?php

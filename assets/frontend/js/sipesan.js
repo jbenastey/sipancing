@@ -8,29 +8,12 @@ $(document).ready(function () {
 });
 
 function showTotal() {
-	var panjang = $('#panjang').val();
-	var lebar = $('#lebar').val();
-	var bahan = $('#bahan').val();
 	var jumlah = $('#jumlah').val();
-	var luas = parseInt(panjang) * parseInt(lebar);
-	var total = 0;
-	var html = '';
-	if (bahan === 'Biasa'){
-		total = luas * jumlah * 20000;
-		html = '' +
-			'<h3> Rp. '+formatRupiah(total.toString())+'</h3>';
-		$('#total').html(html);
-	} else if (bahan === 'Menengah'){
-		total = luas * jumlah * 30000;
-		html = '' +
-			'<h3> Rp. '+formatRupiah(total.toString())+'</h3>';
-		$('#total').html(html);
-	} else if (bahan === 'Bagus'){
-		total = luas * jumlah * 35000;
-		html = '' +
-			'<h3> Rp. '+formatRupiah(total.toString())+'</h3>';
-		$('#total').html(html);
-	}
+	var harga = $('#harga').val();
+	var total = jumlah * harga;
+	var html = '' +
+		'<h3> Rp. '+formatRupiah(total.toString())+'</h3>';
+	$('#total').html(html);
 }
 
 // ------------------------------------------------------------------------------------------

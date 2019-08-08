@@ -7,50 +7,27 @@ if ($keranjang == !null):
 		</header>
 		<div class="row">
 			<div class="col-md-10">
-				<!--			<h4>Stiker</h4>-->
-				<!--			<table class="table table-shopping-cart">-->
-				<!--				<thead>-->
-				<!--				<tr>-->
-				<!--					<th>Foto</th>-->
-				<!--					<th>Panjang</th>-->
-				<!--					<th>Lebar</th>-->
-				<!--					<th>Bahan</th>-->
-				<!--					<th>Jumlah</th>-->
-				<!--					<th>Estimasi</th>-->
-				<!--					<th>Total</th>-->
-				<!--				</tr>-->
-				<!--				</thead>-->
-				<!--				<tbody>-->
-				<!---->
-				<!--				</tbody>-->
-				<!--			</table>-->
-				<!--			<div class="gap gap-small"></div>-->
-				<h4>Spanduk</h4>
 				<table class="table table-bordered table-shopping-cart">
 					<thead>
 					<tr>
-						<th>Foto</th>
-						<th>Panjang</th>
-						<th>Lebar</th>
-						<th>Bahan</th>
-						<th>Jumlah</th>
-						<th>Estimasi</th>
-						<th>Total</th>
+						<th style="text-align: center" width="15%">Foto</th>
+						<th style="text-align: center" >Nama</th>
+						<th style="text-align: center" >Kategori</th>
+						<th style="text-align: center" >Jumlah</th>
+						<th style="text-align: center" >Total</th>
 					</tr>
 					</thead>
 					<tbody>
 					<?php
-					foreach ($spanduk as $key => $value):
+					foreach ($pesanan as $key => $value):
 						?>
 						<tr>
-							<td><img src="<?= base_url('assets/images/spanduk/') . $value['spanduk_foto'] ?>" alt="foto"
+							<td><img src="<?= base_url('assets/images/produk/') . $value['produk_foto'] ?>" alt="foto"
 									 style="width: 100%"></td>
-							<td><?= $value['spanduk_panjang'] ?> cm</td>
-							<td><?= $value['spanduk_lebar'] ?> cm</td>
-							<td><?= $value['spanduk_bahan'] ?></td>
-							<td><?= $value['spanduk_jumlah'] ?> </td>
-							<td><?= $value['spanduk_estimasi'] ?> Hari</td>
-							<td style="text-align: right"> Rp.<?= nominal($value['spanduk_total']) ?></td>
+							<td><?= $value['produk_nama'] ?> </td>
+							<td><?= $value['kategori_nama'] ?> </td>
+							<td><?= $value['pesanan_jumlah'] ?></td>
+							<td style="text-align: right"> Rp.<?= nominal($value['pesanan_total']) ?></td>
 						</tr>
 					<?php
 					endforeach;
