@@ -11,7 +11,7 @@
 	<meta name="author" content="Tsoy">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="shorcut icon" href="<?=base_url()?>assets/frontend/img/sipesan/print-flat.png">
+	<link rel="shorcut icon" href="<?=base_url()?>assets/frontend/img/sipesan/fishing-icon.png">
 	<link
 		href='<?= base_url() ?>assets/frontend/fonts/fonts.googleapis.com/cssb98c.css?family=Roboto:500,300,700,400italic,400'
 		rel='stylesheet' type='text/css'>
@@ -235,103 +235,26 @@
 				<a class="navbar-brand" href="<?= base_url('') ?>">
 					<p style="color: white;"><i class="fa fa-home"></i> Toko Aj. Pancing</p></a>
 			</div>
+			<?php
+			$ci =& get_instance();
+			$model = array('BayarModel','CRUDModel');
+			$ci->load->model($model);
+			$kategori = $this->CRUDModel->view_data('sipancing_kategori','kategori_date_created');
+			?>
+
 			<div class="collapse navbar-collapse" id="main-nav-collapse">
 				<ul class="nav navbar-nav">
-					<li class="dropdown"><a href="#"><i class="fa fa-reorder"></i>&nbsp; Pesan Sekarang<i
+					<li class="dropdown"><a href="#"><i class="fa fa-reorder"></i>&nbsp; Kategori<i
 								class="drop-caret" data-toggle="dropdown"></i></a>
 						<ul class="dropdown-menu dropdown-menu-category">
-							<li><a href="#"><i class="fa fa-sticky-note dropdown-menu-category-icon"></i>Stiker</a>
-								<div class="dropdown-menu-category-section">
-									<div class="dropdown-menu-category-section-inner">
-										<div class="dropdown-menu-category-section-content">
-											<div class="row">
-												<div class="col-md-6">
-													<h5 class="dropdown-menu-category-title">Stiker</h5>
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-														doloribus eos eum labore laborum maxime odio odit placeat
-														repellendus reprehenderit, sapiente similique, tenetur unde
-														velit veritatis. Error iure possimus veniam!</p>
-													<a class="btn btn-lg btn-primary" href="#">Pesan Stiker Sekarang <i
-															class="fa fa-caret-right"></i></a>
-												</div>
-											</div>
-										</div>
-										<img class="dropdown-menu-category-section-theme-img"
-											 src="<?= base_url() ?>assets/frontend/img/sipesan/stiker.png"
-											 alt="Image Alternative text" title="Stiker"
-											 style="width: 350px; right: -10px;"/>
-									</div>
-								</div>
+							<?php
+							foreach ($kategori as $key=> $value):
+							?>
+							<li><a href="<?=base_url('cari/'.$value['kategori_id'])?>"><?=$value['kategori_nama']?></a>
 							</li>
-							<li><a href="#"><i class="fa fa-photo dropdown-menu-category-icon"></i>Spanduk</a>
-								<div class="dropdown-menu-category-section">
-									<div class="dropdown-menu-category-section-inner">
-										<div class="dropdown-menu-category-section-content">
-											<div class="row">
-												<div class="col-md-6">
-													<h5 class="dropdown-menu-category-title">Spanduk</h5>
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-														doloribus eos eum labore laborum maxime odio odit placeat
-														repellendus reprehenderit, sapiente similique, tenetur unde
-														velit veritatis. Error iure possimus veniam!</p>
-													<a class="btn btn-lg btn-primary" href="<?= base_url('spanduk') ?>">Pesan
-														Spanduk Sekarang <i class="fa fa-caret-right"></i></a>
-												</div>
-											</div>
-										</div>
-										<img class="dropdown-menu-category-section-theme-img"
-											 src="<?= base_url() ?>assets/frontend/img/sipesan/spanduk.png"
-											 alt="Image Alternative text" title="Spanduk"
-											 style="width: 350px;right: -10px; bottom: -10px;"/>
-									</div>
-								</div>
-							</li>
-							<li><a href="#"><i class="fa fa-id-card dropdown-menu-category-icon"></i>Kartu Nama</a>
-								<div class="dropdown-menu-category-section">
-									<div class="dropdown-menu-category-section-inner">
-										<div class="dropdown-menu-category-section-content">
-											<div class="row">
-												<div class="col-md-6">
-													<h5 class="dropdown-menu-category-title">Kartu Nama</h5>
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-														doloribus eos eum labore laborum maxime odio odit placeat
-														repellendus reprehenderit, sapiente similique, tenetur unde
-														velit veritatis. Error iure possimus veniam!</p>
-													<a class="btn btn-lg btn-primary" href="#">Pesan Kartu Nama Sekarang
-														<i class="fa fa-caret-right"></i></a>
-												</div>
-											</div>
-										</div>
-										<img class="dropdown-menu-category-section-theme-img"
-											 src="<?= base_url() ?>assets/frontend/img/sipesan/kartunama.png"
-											 alt="Image Alternative text" title="Kartu Nama"
-											 style="width: 350px; right: -30px"/>
-									</div>
-								</div>
-							</li>
-							<li><a href="#"><i class="fa fa-file-image-o dropdown-menu-category-icon"></i>Brosur</a>
-								<div class="dropdown-menu-category-section">
-									<div class="dropdown-menu-category-section-inner">
-										<div class="dropdown-menu-category-section-content">
-											<div class="row">
-												<div class="col-md-6">
-													<h5 class="dropdown-menu-category-title">Brosur</h5>
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-														doloribus eos eum labore laborum maxime odio odit placeat
-														repellendus reprehenderit, sapiente similique, tenetur unde
-														velit veritatis. Error iure possimus veniam!</p>
-													<a class="btn btn-lg btn-primary" href="#">Pesan Brosur Sekarang <i
-															class="fa fa-caret-right"></i></a>
-												</div>
-											</div>
-										</div>
-										<img class="dropdown-menu-category-section-theme-img"
-											 src="<?= base_url() ?>assets/frontend/img/sipesan/brosur.png"
-											 alt="Image Alternative text" title="Brosur"
-											 style="width: 350px; right: -10px"/>
-									</div>
-								</div>
-							</li>
+							<?php
+							endforeach;
+							?>
 						</ul>
 					</li>
 				</ul>
@@ -362,20 +285,18 @@
 					<?php endif; ?>
 					<li>
 						<?php
-//						$ci =& get_instance();
-//						$ci->load->model('BayarModel');
-//						$keranjang = $ci->BayarModel->lihat_keranjang_status($this->session->userdata('session_id'), 'belum')->row_array();
-//						if ($keranjang == null):
+						$keranjang = $ci->BayarModel->lihat_keranjang_status($this->session->userdata('session_id'), 'belum')->row_array();
+						if ($keranjang == null):
 							?>
 							<a href="<?= base_url('keranjang') ?>"><i
 									class="fa fa-shopping-cart"></i></a>
 						<?php
-//						else:
+						else:
 							?>
-<!--							<a href="--><?//= base_url('keranjang') ?><!--"><i-->
-<!--									class="fa fa-shopping-cart animated infinite tada"></i></a>-->
+							<a href="<?= base_url('keranjang') ?>"><i
+									class="fa fa-shopping-cart animated infinite tada"></i></a>
 						<?php
-//						endif;
+						endif;
 						?>
 					</li>
 				</ul>

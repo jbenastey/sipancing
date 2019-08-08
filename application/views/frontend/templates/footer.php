@@ -1,3 +1,4 @@
+
 <div class="gap"></div>
 
 <footer class="main-footer">
@@ -5,7 +6,7 @@
 		<div class="row row-col-gap" data-gutter="60">
 			<div class="col-md-3">
 				<h4 class="widget-title-sm">Tentang Kami</h4>
-				<p>Surya Madani Digital Printing melayani : digital printing dan offset, seperti cetak spanduk, sticker, banner, poster, baliho, dan one way vision.</p>
+				<p>[tentang toko]</p>
 				<ul class="main-footer-social-list">
 					<li>
 						<a class="fa fa-facebook" href="#"></a>
@@ -26,11 +27,11 @@
 			</div>
 			<div class="col-md-3">
 				<h4 class="widget-title-sm">Alamat</h4>
-				<p>Jalan Mr SM Amin No.21, Simpang Baru, Kec. Tampan, Kota Pekanbaru, Riau 28292</p>
+				<p>[alamat]</p>
 			</div>
 			<div class="col-md-3">
 				<h4 class="widget-title-sm">Kontak</h4>
-				<p>0813-7859-0777</p>
+				<p>+62 853-7571-8378</p>
 			</div>
 			<div class="col-md-3">
 				<h4 class="widget-title-sm">Jam Buka</h4>
@@ -64,11 +65,6 @@
 						<td style="padding: 3px;">Sabtu</td>
 						<td style="padding: 3px;"> : </td>
 						<td style="padding: 3px;">08.00 – 18.00</td>
-					</tr>
-					<tr>
-						<td style="padding: 3px;">Minggu </td>
-						<td style="padding: 3px;"> : </td>
-						<td style="padding: 3px;">09.00 – 17.00</td>
 					</tr>
 				</table>
 			</div>

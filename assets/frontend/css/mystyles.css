@@ -1,4 +1,7 @@
 /*YOUR CUSTOM STYLES*/
+html{
+	scroll-behavior: smooth;
+}
 .alert-parent{
 	position: absolute;
 	z-index: 2;
