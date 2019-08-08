@@ -27,6 +27,7 @@
 <script src="<?=base_url()?>assets/backend/node_modules/raphael/raphael.min.js"></script>
 <script src="<?=base_url()?>assets/backend/node_modules/morris.js/morris.min.js"></script>
 <script src="<?=base_url()?>assets/backend/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+<script src="<?=base_url()?>assets/backend/node_modules/dropify/dist/js/dropify.min.js"></script>
 <!-- End plugin js for this page-->
 <!-- inject:js -->
 <script src="<?=base_url()?>assets/backend/js/off-canvas.js"></script>
@@ -40,8 +41,7 @@
 <script src="<?= base_url('assets/backend/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js')?>"></script>
 <script src="<?= base_url('assets/backend/js/data-table.js')?>"></script>
 <!-- Custom js for this page-->
-<script src="<?=base_url()?>assets/backend/js/dashboard.js"></script>
-<script src="<?=base_url()?>assets/backend/js/dashboard.js"></script>
+<script src="<?=base_url()?>assets/backend/js/dropify.js"></script>
 <!-- End custom js for this page-->
 </body>
 

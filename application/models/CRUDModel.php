@@ -12,6 +12,12 @@ class CRUDModel extends CI_Model{
 		$this->db->order_by($order,'DESC');
 		return $this->db->get($table)->result_array();
 	}
+	function view_produk(){
+		$this->db->from('sipancing_produk');
+		$this->db->join('sipancing_kategori','sipancing_kategori.kategori_id = sipancing_produk.produk_kategori_id');
+		$this->db->order_by('produk_date_created','DESC');
+		return $this->db->get()->result_array();
+	}
 	function view_data_by_id($id,$key,$table){
 		$this->db->where($key,$id);
 		return $this->db->get($table)->row_array();

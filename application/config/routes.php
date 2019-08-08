@@ -81,6 +81,9 @@ $route['admin/transaksi/konfirmasi/(:any)'] = 'backend/TransaksiController/konfi
 $route['admin/kategori'] = 'backend/KategoriController';
 $route['admin/kategori/tambah'] = 'backend/KategoriController/tambah';
 
+$route['admin/produk'] = 'backend/ProdukController';
+$route['admin/produk/tambah'] = 'backend/ProdukController/tambah';
+
 //$route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
