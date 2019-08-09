@@ -27,9 +27,9 @@
 <body>
 <div class="container-scroller">
 	<!-- partial:partials/_navbar.html -->
-	<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+	<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row  d-print-none">
 		<div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-			<a class="navbar-brand brand-logo" href="<?=base_url('admin')?>"><img src="<?=base_url()?>assets/frontend/img/sipesan/fishing-icon.png" alt="logo" style="width: 10%"/></a>
+			<a class="navbar-brand brand-logo" href="<?=base_url('admin')?>"><img src="<?=base_url()?>assets/frontend/img/sipesan/fishing-icon.png" alt="logo" style="width: 10%"/><span style="color: black; font-size: medium"> Toko Aj. Pancing</span></a>
 			<a class="navbar-brand brand-logo-mini" href="<?=base_url('admin')?>"><img src="<?=base_url()?>assets/frontend/img/sipesan/fishing-icon.png" alt="logo"/></a>
 		</div>
 		<div class="navbar-menu-wrapper d-flex align-items-center">
@@ -58,7 +58,7 @@
 	<div class="container-fluid page-body-wrapper">
 		<div class="row row-offcanvas row-offcanvas-right">
 			<!-- partial:partials/_settings-panel.html -->
-			<div class="theme-setting-wrapper">
+			<div class="theme-setting-wrapper d-print-none">
 				<div id="settings-trigger"><i class="mdi mdi-settings"></i></div>
 				<div id="theme-settings" class="settings-panel">
 					<i class="settings-close mdi mdi-close"></i>
@@ -80,7 +80,7 @@
 			</div>
 			<!-- partial -->
 			<!-- partial:partials/_sidebar.html -->
-			<nav class="sidebar sidebar-offcanvas" id="sidebar">
+			<nav class="sidebar sidebar-offcanvas d-print-none" id="sidebar">
 				<ul class="nav">
 					<li class="nav-item nav-profile">
 						<div class="nav-link">
@@ -125,7 +125,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="<?=base_url('admin')?>">
+						<a class="nav-link" href="<?=base_url('admin/laporan')?>">
 							<i class="icon-docs menu-icon"></i>
 							<span class="menu-title">Laporan</span>
 						</a>

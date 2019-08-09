@@ -90,6 +90,9 @@ $route['admin/produk/lihat/(:any)'] = 'backend/ProdukController/lihat/$1';
 $route['admin/produk/ubah/(:any)'] = 'backend/ProdukController/ubah/$1';
 $route['admin/produk/hapus/(:any)'] = 'backend/ProdukController/hapus/$1';
 
+
+$route['admin/laporan'] = 'backend/LaporanController';
+
 //$route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
