@@ -86,6 +86,9 @@ $route['admin/kategori/hapus/(:any)'] = 'backend/KategoriController/hapus/$1';
 
 $route['admin/produk'] = 'backend/ProdukController';
 $route['admin/produk/tambah'] = 'backend/ProdukController/tambah';
+$route['admin/produk/lihat/(:any)'] = 'backend/ProdukController/lihat/$1';
+$route['admin/produk/ubah/(:any)'] = 'backend/ProdukController/ubah/$1';
+$route['admin/produk/hapus/(:any)'] = 'backend/ProdukController/hapus/$1';
 
 //$route['default_controller'] = 'welcome';
 $route['404_override'] = '';

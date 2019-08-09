@@ -16,6 +16,11 @@ function showTotal() {
 	$('#total').html(html);
 }
 
+
+function showInput() {
+	document.getElementById('ganti-foto').style.display = "block";
+}
+
 // ------------------------------------------------------------------------------------------
 // Fungsi-fungsi
 // ------------------------------------------------------------------------------------------

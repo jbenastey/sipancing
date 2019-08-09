@@ -26,9 +26,13 @@
 							<td><?=$key+1?></td>
 							<td><?=$value['produk_nama']?></td>
 							<td><?=$value['kategori_nama']?></td>
-							<td><?=$value['produk_harga']?></td>
+							<td><?=nominal($value['produk_harga'])?></td>
 							<td><?=$value['produk_stok']?></td>
-							<td><a href="#">Lihat</a></td>
+							<td>
+								<a href="<?=base_url('admin/produk/lihat/'.$value['produk_id'])?>" class="badge badge-primary"><i class="fa fa-eye"> </i> Lihat</a>
+								<a href="<?=base_url('admin/produk/ubah/'.$value['produk_id'])?>" class="badge badge-success"><i class="fa fa-edit"> </i> Ubah</a>
+								<a href="<?=base_url('admin/produk/hapus/'.$value['produk_id'])?>" onclick="return confirm('Hapus ?')" class="badge badge-danger"><i class="fa fa-trash"> </i> Hapus</a>
+							</td>
 						</tr>
 					<?php
 					endforeach;

@@ -42,6 +42,7 @@
 <script src="<?= base_url('assets/backend/js/data-table.js')?>"></script>
 <!-- Custom js for this page-->
 <script src="<?=base_url()?>assets/backend/js/dropify.js"></script>
+<script src="<?=base_url()?>assets/frontend/js/sipesan.js"></script>
 <!-- End custom js for this page-->
 </body>
 
