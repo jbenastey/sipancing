@@ -22,7 +22,10 @@
 					<tr>
 						<td><?=$key+1?></td>
 						<td><?=$value['kategori_nama']?></td>
-						<td><a href="#">Lihat</a></td>
+						<td>
+							<a href="<?=base_url('admin/kategori/ubah/'.$value['kategori_id'])?>" class="badge badge-success"><i class="fa fa-edit"> </i> Ubah</a>
+							<a href="<?=base_url('admin/kategori/hapus/'.$value['kategori_id'])?>" onclick="return confirm('Hapus ?')" class="badge badge-danger"><i class="fa fa-trash"> </i> Hapus</a>
+						</td>
 					</tr>
 					<?php
 					endforeach;

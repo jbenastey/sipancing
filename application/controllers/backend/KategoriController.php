@@ -37,4 +37,25 @@ class KategoriController extends CI_Controller{
 			$this->load->view('backend/templates/footer');
 		}
 	}
+	public function ubah($id){
+		if (isset($_POST['simpan'])){
+			$nama = $this->input->post('nama');
+			$data = array(
+				'kategori_nama' => $nama,
+			);
+			$this->CRUDModel->update('kategori_id',$id,'sipancing_kategori',$data);
+			redirect('admin/kategori');
+		} else {
+			$data = array(
+				'kategori' => $this->CRUDModel->view_data_by_id($id,'kategori_id','sipancing_kategori')
+			);
+			$this->load->view('backend/templates/header');
+			$this->load->view('backend/kategori/ubah',$data);
+			$this->load->view('backend/templates/footer');
+		}
+	}
+	public function hapus($id){
+		$this->CRUDModel->delete('kategori_id',$id,'sipancing_kategori');
+		redirect('admin/kategori');
+	}
 }

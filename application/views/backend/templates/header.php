@@ -6,7 +6,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Victory Admin</title>
+	<title>Toko Aj. Pancing</title>
 	<!-- plugins:css -->
 	<link rel="stylesheet" href="<?=base_url()?>assets/backend/node_modules/mdi/css/materialdesignicons.min.css">
 	<link rel="stylesheet" href="<?=base_url()?>assets/backend/node_modules/simple-line-icons/css/simple-line-icons.css">
@@ -29,8 +29,8 @@
 	<!-- partial:partials/_navbar.html -->
 	<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
 		<div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-			<a class="navbar-brand brand-logo" href="<?=base_url('')?>"><img src="<?=base_url()?>assets/backend/images/logo.svg" alt="logo"/></a>
-			<a class="navbar-brand brand-logo-mini" href="<?=base_url('')?>"><img src="<?=base_url()?>assets/backend/images/logo-mini.svg" alt="logo"/></a>
+			<a class="navbar-brand brand-logo" href="<?=base_url('admin')?>"><img src="<?=base_url()?>assets/frontend/img/sipesan/fishing-icon.png" alt="logo" style="width: 10%"/></a>
+			<a class="navbar-brand brand-logo-mini" href="<?=base_url('admin')?>"><img src="<?=base_url()?>assets/frontend/img/sipesan/fishing-icon.png" alt="logo"/></a>
 		</div>
 		<div class="navbar-menu-wrapper d-flex align-items-center">
 			<button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -85,15 +85,12 @@
 					<li class="nav-item nav-profile">
 						<div class="nav-link">
 							<div class="profile-image">
-								<img src="<?=base_url()?>assets/backend/images/faces/face10.jpg" alt="image"/>
-								<span class="online-status online"></span> <!--change class online to offline or busy as needed-->
+								<img src="<?=base_url()?>assets/backend/images/user.png" alt="image"/>
+								 <!--change class online to offline or busy as needed-->
 							</div>
 							<div class="profile-name">
 								<p class="name">
-									Marina Michel
-								</p>
-								<p class="designation">
-									Super Admin
+									Administrator
 								</p>
 							</div>
 						</div>

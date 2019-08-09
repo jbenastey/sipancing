@@ -56,13 +56,13 @@ class BayarController extends CI_Controller{
 			$this->BayarModel->update_keranjang($id,$dataBayar);
 			$this->BayarModel->simpan_faktur($dataFaktur);
 			$this->session->set_flashdata('alert', 'bayar_sukses');
-			redirect('selesai/'.$bank);
+			redirect('selesai/'.$bank.'/'.$id);
 		}
 		$this->load->view('frontend/templates/header',$data);
 		$this->load->view('frontend/pembayaran/bayar',$data);
 		$this->load->view('frontend/templates/footer');
 	}
-	public function selesai($bank){
+	public function selesai($bank,$id){
 		$kata = array(
 			'bni' => 'Silahkan transfer ke rekening ',
 			'bri' => 'Silahkan transfer ke rekening ',
@@ -76,7 +76,7 @@ class BayarController extends CI_Controller{
 		$data = array(
 			'kata' => $kata[$bank],
 			'bank' => $dataBank[$bank],
-			'pesanan' => $this->BayarModel->lihat_keranjang_status($this->session->userdata('session_id'),'sudah')->row_array(),
+			'pesanan' => $this->BayarModel->lihat_keranjang_status_selesai($this->session->userdata('session_id'),'sudah',$id)->row_array(),
 			'title' => 'Terima Kasih | Toko Aj. Pancing'
 		);
 		$this->load->view('frontend/templates/header',$data);

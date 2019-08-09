@@ -6,7 +6,7 @@
 		<div class="row row-col-gap" data-gutter="60">
 			<div class="col-md-3">
 				<h4 class="widget-title-sm">Tentang Kami</h4>
-				<p>[tentang toko]</p>
+				<p>Toko ini menjual alat pancing dan pakan ternak</p>
 				<ul class="main-footer-social-list">
 					<li>
 						<a class="fa fa-facebook" href="#"></a>
@@ -27,7 +27,7 @@
 			</div>
 			<div class="col-md-3">
 				<h4 class="widget-title-sm">Alamat</h4>
-				<p>[alamat]</p>
+				<p>Jalan Garuda Sakti KM.2</p>
 			</div>
 			<div class="col-md-3">
 				<h4 class="widget-title-sm">Kontak</h4>

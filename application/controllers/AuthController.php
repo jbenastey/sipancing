@@ -6,7 +6,7 @@ class AuthController extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$model = array('PenggunaModel');
+		$model = array('PenggunaModel','CRUDModel');
 		$this->load->model($model);
 	}
 	public function login(){
@@ -45,7 +45,7 @@ class AuthController extends CI_Controller {
 			}
 		} else {
 			$data = array(
-				'title' => 'Login | Surya Madani Digital Printing'
+				'title' => 'Login | Toko Aj. Pancing'
 			);
 			$this->load->view('frontend/templates/header',$data);
 			$this->load->view('frontend/auth/login');

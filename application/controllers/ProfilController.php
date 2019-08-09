@@ -7,7 +7,7 @@ class ProfilController extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$model = array('BayarModel');
+		$model = array('BayarModel','CRUDModel');
 		$helper = array('nominal','tgl_indo');
 		$this->load->model($model);
 		$this->load->helper($helper);
@@ -26,7 +26,7 @@ class ProfilController extends CI_Controller
 	}
 	public function pesanan(){
 		$data = array(
-			'title' => 'Pesanan | Surya Madani Digital Printing',
+			'title' => 'Pesanan | Toko Aj. Pancing',
 			'pesanan' => $this->BayarModel->lihat_keranjang_faktur($this->session->userdata('session_id'))->result_array(),
 		);
 		$this->load->view('frontend/templates/header',$data);
@@ -36,7 +36,7 @@ class ProfilController extends CI_Controller
 	public function detailPesanan($id){
 		$pesanan = $this->BayarModel->lihat_keranjang_faktur_by_id($id,$this->session->userdata('session_id'))->row_array();
 		$data = array(
-			'title' => 'Detail Pesanan | Surya Madani Digital Printing',
+			'title' => 'Detail Pesanan | Toko Aj. Pancing',
 			'pesanan' => $pesanan,
 			'produk' => $this->BayarModel->lihat_keranjang_produk($this->session->userdata('session_id'),'sudah',$pesanan['keranjang_id'])->result_array(),
 		);
