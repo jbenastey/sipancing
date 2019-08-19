@@ -52,4 +52,37 @@ class LaporanController extends CI_Controller
 			$this->load->view('backend/templates/footer');
 		}
 	}
+	public function hari(){
+		if (isset($_POST['lihat'])){
+			$hari = $this->input->post('tanggal');
+			$transaksi = $this->BayarModel->lihat_keranjang_faktur_admin()->result_array();
+			$laporan = array();
+			foreach ($transaksi as $key=>$value){
+				if ($value['faktur_status'] == 'sudah'){
+					$laporan[$key] = $value;
+				}
+			}
+			$laporantransaksi = array();
+			foreach ($laporan as $key=>$value){
+				$datetime = explode(' ',$value['faktur_date_created']);
+				$tanggal = $datetime[0];
+				if ($tanggal == $hari){
+					$laporantransaksi[$key] = $value;
+				}
+			}
+			$data = array(
+				'laporan' => $laporantransaksi,
+				'bulan' => null,
+				'tahun' => null,
+				'tanggal' => $hari,
+			);
+			$this->load->view('backend/templates/header');
+			$this->load->view('backend/laporan/lihat',$data);
+			$this->load->view('backend/templates/footer');
+		} else {
+			$this->load->view('backend/templates/header');
+			$this->load->view('backend/laporan/hari');
+			$this->load->view('backend/templates/footer');
+		}
+	}
 }

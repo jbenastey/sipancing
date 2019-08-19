@@ -18,7 +18,17 @@
 			<br>
 			<div>
 				<div class="laporan-header"><h3>Toko Aj. Pancing</h3></div>
+				<?php
+				if ($bulan != null):
+				?>
 				<div class="laporan-header"><h4>Laporan Bulan <?= $bulan ?> <?= $tahun ?></h4></div>
+				<?php
+				else:
+				?>
+					<div class="laporan-header"><h4>Laporan Tanggal <?= date_indo($tanggal) ?> </h4></div>
+				<?php
+				endif;
+				?>
 				<table class="table table-bordered">
 					<thead>
 					<tr>

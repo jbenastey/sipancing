@@ -92,6 +92,7 @@ $route['admin/produk/hapus/(:any)'] = 'backend/ProdukController/hapus/$1';
 
 
 $route['admin/laporan'] = 'backend/LaporanController';
+$route['admin/laporan/hari'] = 'backend/LaporanController/hari';
 
 //$route['default_controller'] = 'welcome';
 $route['404_override'] = '';
