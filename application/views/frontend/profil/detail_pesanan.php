@@ -32,7 +32,13 @@
 		<div class="col-md-9">
 			<h3 class="widget-title"><i class="fa fa-list"></i> Detail Pemesanan</h3>
 			<div class="box">
-				<button type="button" class="btn btn-primary" style="float: right" onclick="window.print()"><i
+				<button type="button" class="btn btn-primary" style="float: right" onclick="window.print()"
+					<?php
+					if ($pesanan['faktur_status'] != 'sudah'){
+						echo 'disabled';
+					}
+					?>
+				><i
 						class="fa fa-print"></i></button>
 				<div id="section-to-print" style="width: 100%">
 					<table>
