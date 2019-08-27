@@ -7,7 +7,10 @@ $(document).ready(function () {
 
 	$('#komentar').DataTable({
 		"lengthChange": false,
-		"searching" : false
+		"searching" : false,
+		"language": {
+			"emptyTable": "Testimoni belum ada . . . "
+		}
 	});
 
 });
