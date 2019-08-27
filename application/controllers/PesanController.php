@@ -23,7 +23,8 @@ class PesanController extends CI_Controller
 		if (isset($_POST['keranjang'])){
 			$pesananId = 'ORD-' . substr(time(), 5);
 			$jumlah = $this->input->post('jumlah');
-			$total = $pesanan['produk_harga'] * $jumlah;
+			$harga = $this->input->post('harga');
+			$total = $harga * $jumlah;
 
 			$dataPesanan = array(
 				'pesanan_id' => $pesananId,

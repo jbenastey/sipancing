@@ -84,6 +84,16 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group row">
+						<label for="nomorSurat" class="col-sm-2 col-form-label">Diskon (%)</label>
+						<div class="col-sm-10">
+							<input type="number" max="99" class="form-control" id="" value="<?=$produk['produk_diskon']?>" placeholder="Masukkan Diskon" name="diskon" required autocomplete="off">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group row">
 						<label for="nomorSurat" class="col-sm-2 col-form-label"></label>
 						<div class="col-sm-10">
 							<a href="<?=base_url('admin/produk')?>" class="btn btn-outline-primary">Kembali</a>

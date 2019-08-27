@@ -80,6 +80,7 @@ class ProdukController extends CI_Controller{
 			$harga = $this->input->post('harga');
 			$deskripsi = $this->input->post('deskripsi');
 			$stok = $this->input->post('stok');
+			$diskon = $this->input->post('diskon');
 
 			$config['upload_path'] = './assets/images/produk/';
 			$config['allowed_types'] = 'jpg|png|jpeg';
@@ -92,7 +93,8 @@ class ProdukController extends CI_Controller{
 					'produk_kategori_id' => $kategori,
 					'produk_harga' => $harga,
 					'produk_deskripsi' => $deskripsi,
-					'produk_stok' => $stok
+					'produk_stok' => $stok,
+					'produk_diskon' => $diskon
 				);
 				$this->CRUDModel->update('produk_id',$id,'sipancing_produk',$data);
 				redirect('admin/produk');
@@ -105,7 +107,8 @@ class ProdukController extends CI_Controller{
 					'produk_harga' => $harga,
 					'produk_deskripsi' => $deskripsi,
 					'produk_foto' => $foto,
-					'produk_stok' => $stok
+					'produk_stok' => $stok,
+					'produk_diskon' => $diskon
 				);
 				$this->CRUDModel->update('produk_id',$id,'sipancing_produk',$data);
 				redirect('admin/produk');

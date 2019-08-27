@@ -28,8 +28,18 @@
 					<div class="box">
 						<p class="product-page-desc"><?=$pesanan['produk_deskripsi']?></p>
 						<p class="product-page-desc">Stok : <?=$pesanan['produk_stok']?></p>
-						<p class="product-page-desc">Harga : Rp.<?=nominal($pesanan['produk_harga'])?></p>
-						<input type="hidden" id="harga" value="<?=$pesanan['produk_harga']?>">
+						<p class="product-page-desc">Harga : Rp.<?php
+							if ($pesanan['produk_diskon'] == null){
+								echo nominal($pesanan['produk_harga']);
+							} else {
+								$diskon = (($pesanan['produk_diskon'] / $pesanan['produk_harga']) * 100);
+								$harga = $pesanan['produk_harga'] - ($pesanan['produk_harga'] * $diskon);
+								echo nominal($harga.'');
+								echo '<span style="font-size: 9pt"> <strike>'.nominal($pesanan['produk_harga']).'</strike></span> <br> ';
+								echo '<span class="btn btn-success btn-xs"> Diskon '.$diskon*100 .' %</span>';
+							}
+							?></p>
+						<input type="hidden" name="harga" id="harga" value="<?=$harga?>">
 						<p class="product-page-desc">Jumlah (pcs) :
 							<select name="jumlah" id="jumlah" onchange="showTotal()" required>
 								<option disabled selected>- Pilih Jumlah -</option>
@@ -105,15 +115,15 @@
 					</thead>
 					<tbody>
 					<?php
-					foreach ($testimoni as $key=>$value):
+					foreach ($testimoni as $key=>$pesanan):
 					?>
 					<tr>
 						<td>
 							<hr>
 							<article class="product-review">
 								<div class="product-review-content">
-									<p class="product-review-meta">by <?=$value['pengguna_nama']?> on <?=$value['testimoni_date_created']?></p>
-									<p class="product-review-body"><?=$value['testimoni_isi']?></p>
+									<p class="product-review-meta">by <?=$pesanan['pengguna_nama']?> on <?=$pesanan['testimoni_date_created']?></p>
+									<p class="product-review-body"><?=$pesanan['testimoni_isi']?></p>
 								</div>
 							</article>
 						</td>

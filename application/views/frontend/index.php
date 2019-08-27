@@ -52,7 +52,20 @@
 				<a class="product-link" href="<?=base_url('pesan/'.$value['produk_id'])?>"></a>
 				<div class="product-caption">
 					<h5 class="product-caption-title"><?=$value['produk_nama']?></h5>
-					<div class="product-caption-price"><span class="product-caption-price-new">Rp. <?=nominal($value['produk_harga'])?></span>
+					<div class="product-caption-price">
+						<span class="product-caption-price-new">
+							Rp. <?php
+							if ($value['produk_diskon'] == null){
+								echo nominal($value['produk_harga']);
+							} else {
+								$diskon = (($value['produk_diskon'] / $value['produk_harga']) * 100);
+								$harga = $value['produk_harga'] - ($value['produk_harga'] * $diskon);
+								echo nominal($harga.'');
+								echo '<span style="font-size: 9pt"> <strike>'.nominal($value['produk_harga']).'</strike></span> <br> ';
+								echo '<span class="btn btn-success btn-xs"> Diskon '.$diskon*100 .' %</span>';
+							}
+							?>
+						</span>
 					</div>
 					<ul class="product-caption-feature-list">
 						<li><?=$value['kategori_nama']?></li>
@@ -93,7 +106,19 @@
 				<a class="product-link" href="<?=base_url('pesan/'.$value['produk_id'])?>"></a>
 				<div class="product-caption">
 					<h5 class="product-caption-title"><?=$value['produk_nama']?></h5>
-					<div class="product-caption-price"><span class="product-caption-price-new">Rp. <?=nominal($value['produk_harga'])?></span>
+					<div class="product-caption-price"><span class="product-caption-price-new">
+							Rp. <?php
+							if ($value['produk_diskon'] == null){
+								echo nominal($value['produk_harga']);
+							} else {
+								$diskon = (($value['produk_diskon'] / $value['produk_harga']) * 100);
+								$harga = $value['produk_harga'] - ($value['produk_harga'] * $diskon);
+								echo nominal($harga.'');
+								echo '<span style="font-size: 9pt"> <strike>'.nominal($value['produk_harga']).'</strike></span> <br> ';
+								echo '<span class="btn btn-success btn-xs"> Diskon '.$diskon*100 .' %</span>';
+							}
+							?>
+						</span>
 					</div>
 					<ul class="product-caption-feature-list">
 						<li><?=$value['kategori_nama']?></li>
