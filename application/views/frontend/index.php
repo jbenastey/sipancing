@@ -64,6 +64,9 @@
 								echo '<span style="font-size: 9pt"> <strike>'.nominal($value['produk_harga']).'</strike></span> <br> ';
 								echo '<span class="btn btn-success btn-xs"> Diskon '.$diskon*100 .' %</span>';
 							}
+							if ($value['produk_stok'] <= 5){
+								echo '<br><span class="btn btn-warning btn-xs"> Stok terbatas, Sisa '.$value['produk_stok'].' </span>';
+							}
 							?>
 						</span>
 					</div>
@@ -106,7 +109,8 @@
 				<a class="product-link" href="<?=base_url('pesan/'.$value['produk_id'])?>"></a>
 				<div class="product-caption">
 					<h5 class="product-caption-title"><?=$value['produk_nama']?></h5>
-					<div class="product-caption-price"><span class="product-caption-price-new">
+					<div class="product-caption-price">
+						<span class="product-caption-price-new">
 							Rp. <?php
 							if ($value['produk_diskon'] == null){
 								echo nominal($value['produk_harga']);
@@ -116,6 +120,9 @@
 								echo nominal($harga.'');
 								echo '<span style="font-size: 9pt"> <strike>'.nominal($value['produk_harga']).'</strike></span> <br> ';
 								echo '<span class="btn btn-success btn-xs"> Diskon '.$diskon*100 .' %</span>';
+							}
+							if ($value['produk_stok'] <= 5){
+								echo '<br><span class="btn btn-warning btn-xs"> Stok terbatas, Sisa '.$value['produk_stok'].' </span>';
 							}
 							?>
 						</span>
