@@ -5,6 +5,11 @@ $(document).ready(function () {
 	$('.hide-it').addClass('fadeOutUpBig')
 	},5000);
 
+	$('#komentar').DataTable({
+		"lengthChange": false,
+		"searching" : false
+	});
+
 });
 
 function showTotal() {

@@ -34,6 +34,13 @@ class CRUDModel extends CI_Model{
 		$this->db->where('produk_kategori_id',$id);
 		return $this->db->get()->result_array();
 	}
+	function view_testimoni($id){
+		$this->db->from('sipancing_testimoni');
+		$this->db->join('sipancing_pengguna','sipancing_pengguna.pengguna_id = sipancing_testimoni.testimoni_pengguna_id');
+		$this->db->order_by('testimoni_date_created','ASC');
+		$this->db->where('testimoni_produk_id',$id);
+		return $this->db->get()->result_array();
+	}
 	function insert($table,$data){
 		return $this->db->insert($table,$data);
 	}

@@ -57,6 +57,7 @@ $route['login'] = 'AuthController/login';
 $route['logout'] = 'AuthController/logout';
 
 $route['pesan/(:any)'] = 'PesanController/pesan/$1';
+$route['testimoni/(:any)'] = 'PesanController/testimoni/$1';
 
 $route['keranjang'] = 'BayarController/keranjang';
 $route['bayar/(:any)'] = 'BayarController/bayar/$1';

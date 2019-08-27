@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/frontend/css/mystyles.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/frontend/css/switcher.css"/>
 	<link rel="stylesheet" href="<?= base_url() ?>assets/frontend/css/animate.min.css"/>
+	<link rel="stylesheet" href="<?= base_url() ?>assets/frontend/css/dataTables.bootstrap.min.css"/>
 	<link rel="alternate stylesheet" type="text/css"
 		  href="<?= base_url() ?>assets/frontend/css/schemes/bright-turquoise.css" title="bright-turquoise"
 		  media="all"/>
@@ -338,6 +339,11 @@
 		<div class="alert-success animated fadeInDownBig hide-it">
 			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
 			<i class="fa fa-check"></i> Berhasil Melakukan Pemesanan
+		</div>
+		<?php elseif ($this->session->flashdata('alert') == 'testimoni_sukses') : ?>
+		<div class="alert-success animated fadeInDownBig hide-it">
+			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+			<i class="fa fa-check"></i> Berhasil Mengirim Testimoni
 		</div>
 		<?php endif;?>
 	</div>

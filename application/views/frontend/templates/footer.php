@@ -93,6 +93,8 @@
 <script src="<?=base_url()?>assets/frontend/js/owl-carousel.js"></script>
 <script src="<?=base_url()?>assets/frontend/js/magnific.js"></script>
 <script src="<?=base_url()?>assets/frontend/js/custom.js"></script>
+<script src="<?=base_url()?>assets/frontend/js/jquery.dataTables.min.js"></script>
+<script src="<?=base_url()?>assets/frontend/js/dataTables.bootstrap.min.js"></script>
 
 
 <script src="<?=base_url()?>assets/frontend/js/switcher.js"></script>

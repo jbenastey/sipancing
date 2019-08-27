@@ -84,4 +84,65 @@
 		</div>
 	</div>
 	<div class="gap"></div>
+	<div class="tabbable product-tabs">
+		<ul class="nav nav-tabs" id="myTab">
+			<li class="active"><a href="#tab-3" data-toggle="tab"><i class="fa fa-star nav-tab-icon"></i>Testimoni</a>
+			</li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane fade in active" id="tab-3">
+				<div class="row">
+					<div class="col-md-4">
+						<button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#testimoni">Tulis Testimoni</button>
+					</div>
+				</div>
+				<hr />
+				<table id="komentar" style="width: 100%">
+					<thead>
+					<tr>
+						<td class="text-center"></td>
+					</tr>
+					</thead>
+					<tbody>
+					<?php
+					foreach ($testimoni as $key=>$value):
+					?>
+					<tr>
+						<td>
+							<hr>
+							<article class="product-review">
+								<div class="product-review-content">
+									<p class="product-review-meta">by <?=$value['pengguna_nama']?> on <?=$value['testimoni_date_created']?></p>
+									<p class="product-review-body"><?=$value['testimoni_isi']?></p>
+								</div>
+							</article>
+						</td>
+					</tr>
+					<?php
+					endforeach;
+					?>
+					</tbody>
+				</table>
+			</div>
+		</div>
 </div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="testimoni" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<?= form_open('testimoni/'.$pesanan['produk_id']) ?>
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Tulis testimoni anda</h5>
+				</div>
+				<div class="modal-body">
+					<textarea name="isi" class="form-control" id="" cols="30" rows="10"></textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+					<button type="submit" name="testimoni" class="btn btn-primary">Kirim</button>
+				</div>
+				<?= form_close()?>
+			</div>
+		</div>
+	</div>

@@ -76,10 +76,27 @@ class PesanController extends CI_Controller
 			$data = array(
 				'title' => 'Pesan Sekarang | Toko Aj. Pancing',
 				'pesanan' => $pesanan,
+				'testimoni' => $this->CRUDModel->view_testimoni($id)
 			);
 			$this->load->view('frontend/templates/header',$data);
 			$this->load->view('frontend/pesanan/index',$data);
 			$this->load->view('frontend/templates/footer');
+		}
+	}
+
+	public function testimoni($id){
+		if (isset($_POST['testimoni'])){
+			$isi = $this->input->post('isi');
+			$penggunaId = $this->session->userdata('session_id');
+			$produkId = $id;
+			$data = array(
+				'testimoni_pengguna_id' => $penggunaId,
+				'testimoni_produk_id' => $produkId,
+				'testimoni_isi' => $isi,
+			);
+			$this->CRUDModel->insert('sipancing_testimoni',$data);
+			$this->session->set_flashdata('alert', 'testimoni_sukses');
+			redirect('pesan/'.$id);
 		}
 	}
 }
